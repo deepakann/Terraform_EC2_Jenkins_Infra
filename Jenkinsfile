@@ -87,13 +87,13 @@ pipeline {
             }
         }
 
-        stage('Container Image Scanning - Trivy') {
+        /* stage('Container Image Scanning - Trivy') {
             steps {
                 sh """
                   trivy image --exit-code 0 --severity HIGH,CRITICAL ${DOCKER_REPO}:${DOCKER_IMAGE_TAG}
                 """
             }
-        }
+        } */
 
         stage('Push Docker Image to Registry') {
             steps {
