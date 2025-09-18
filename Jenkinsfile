@@ -28,8 +28,8 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                dir('sample-test-app') {
-                    sh 'npm install'
+                dir('sample-react-app') {
+                    sh 'npm ci'
                 }    
             }
         }      
