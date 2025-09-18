@@ -34,7 +34,7 @@ pipeline {
             }
         }      
         
-        stage('Install Docker') {
+        /* stage('Install Docker') {
             steps {
                 sh '''
                 if ! command -v docker &> /dev/null; then
@@ -53,7 +53,7 @@ pipeline {
                 fi
                 '''
             }
-        }
+        } */
 
         stage('Build React App') {
             steps {
