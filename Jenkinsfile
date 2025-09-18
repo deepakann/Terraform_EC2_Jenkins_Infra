@@ -116,7 +116,8 @@ pipeline {
                   kubectl set image deployment/my-sample-react-app my-sample-react-app=${DOCKER_REPO}:${DOCKER_IMAGE_TAG} -n staging
                 """
             }
-        }
+        } */
+        
     post {
         success {
             withCredentials([string(credentialsId: "${TEAMS_WEBHOOK_ID}", variable: 'TEAMS_WEBHOOK')]) {
@@ -137,5 +138,5 @@ pipeline {
             }
         }
     }
-}
+    }
 }
