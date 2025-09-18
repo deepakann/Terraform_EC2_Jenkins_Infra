@@ -88,7 +88,9 @@ pipeline {
         stage('Create Docker Image') {
             steps {
                 script {
-                    dockerImage = docker.build("${DOCKER_REPO}:${DOCKER_IMAGE_TAG}")
+                    dir('sample-react-app') {
+                        dockerImage = docker.build("${DOCKER_REPO}:${DOCKER_IMAGE_TAG}")
+                    }
                 }
             }
         }
