@@ -88,10 +88,13 @@ pipeline {
         stage('Create Docker Image') {
             steps {
                 script {
-                    dockerImage = docker.build("${DOCKER_REPO}:${DOCKER_IMAGE_TAG}")
-                    }
+                    dockerImage = docker.build(
+                        "${DOCKER_REPO}:${DOCKER_IMAGE_TAG}",
+                        "-f Dockerfile sample-react-app"
+                    )
                 }
             }
+        }
 
         /* stage('Container Image Scanning - Trivy') {
             steps {
