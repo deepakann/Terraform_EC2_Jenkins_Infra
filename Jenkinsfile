@@ -109,7 +109,7 @@ pipeline {
             }
         }
 
-        stage('Deploy to Kubernetes Staging') {
+        /* stage('Deploy to Kubernetes Staging') {
             steps {
                 // Assuming kubeconfig is present on agent or loaded from credentials
                 sh """
@@ -117,7 +117,7 @@ pipeline {
                 """
             }
         }
-    }
+    } */
 
     post {
         success {
