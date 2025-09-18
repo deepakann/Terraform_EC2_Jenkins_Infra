@@ -28,10 +28,12 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'npm ci'
+                dir('sample-test-app/src') {
+                    sh 'npm ci'
+                }    
             }
-        }
-
+        }      
+        
         stage('Install Docker') {
             steps {
                 sh '''
