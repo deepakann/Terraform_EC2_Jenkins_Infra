@@ -117,7 +117,8 @@ pipeline {
                 """
             }
         } */
-        
+    }
+  
     post {
         success {
             withCredentials([string(credentialsId: "${TEAMS_WEBHOOK_ID}", variable: 'TEAMS_WEBHOOK')]) {
@@ -137,6 +138,5 @@ pipeline {
                 """
             }
         }
-    }
     }
 }
