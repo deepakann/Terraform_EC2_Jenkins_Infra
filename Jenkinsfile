@@ -57,9 +57,11 @@ pipeline {
 
         stage('Build React App') {
             steps {
-                sh 'npm run build'
+                dir('sample-react-app') {
+                    sh 'npm run build'
+                }
             }
-        }
+        }   
 
         /* stage('SonarQube Scan') {
             steps {
