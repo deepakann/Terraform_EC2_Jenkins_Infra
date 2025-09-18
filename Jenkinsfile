@@ -79,7 +79,9 @@ pipeline {
 
         stage('Run Unit Test') {
             steps {
-                sh 'npm test -- --watchAll=false'
+                dir('sample-react-app') {
+                    sh 'npm test -- --watchAll=false'
+                }
             }
         }
 
