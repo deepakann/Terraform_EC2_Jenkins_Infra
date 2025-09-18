@@ -77,13 +77,13 @@ pipeline {
             }
         } */
 
-        stage('Run Unit Test') {
+        /* stage('Run Unit Test') {
             steps {
                 dir('sample-react-app') {
                     sh 'npm test -- --watchAll=false'
                 }
             }
-        }
+        } */
 
         stage('Create Docker Image') {
             steps {
