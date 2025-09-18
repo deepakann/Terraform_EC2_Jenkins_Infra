@@ -28,7 +28,7 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                dir('sample-test-app/src') {
+                dir('sample-test-app') {
                     sh 'npm ci'
                 }    
             }
