@@ -86,6 +86,18 @@ resource "aws_instance" "cicd_ec2" {
       "sudo systemctl enable jenkins",
       "sudo systemctl start jenkins || (echo 'Jenkins failed to start'; sudo systemctl status jenkins; exit 1)",
 
+      # Install Docker
+      "sudo apt-get update -y",
+      "sudo apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-release",
+      "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg",
+      "echo \"deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable\" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null",
+      "sudo apt-get update -y",
+       "sudo apt-get install -y docker-ce docker-ce-cli containerd.io",
+       "sudo systemctl start docker",
+       "sudo systemctl enable docker",
+       "sudo usermod -aG docker ubuntu",
+       "sudo usermod -aG docker jenkins",
+
       # Instal AWS CLI v2
       "sudo apt install -y gnupg software-properties-common curl unzip",
       "curl \"https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip\" -o \"awscliv2.zip\"",
